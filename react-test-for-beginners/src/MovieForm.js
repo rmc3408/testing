@@ -4,7 +4,7 @@ class MovieForm extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form data-testid='form'>
                     <input type='text' />
                     <button>Submit</button>
                 </form>

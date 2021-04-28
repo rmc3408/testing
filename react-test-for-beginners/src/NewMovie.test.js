@@ -4,11 +4,28 @@ import NewMovie from './NewMovie'
 
 afterEach(cleanup);
 
-test('<NewMovie 1/>', () => {
-    const { debug, getByTestId } = render(<NewMovie />);
+
+test('<NewMovie Snapshot/>', () => {
+    const { debug, getByTestId, queryByTestId } = render(<NewMovie />);
     const h1 = getByTestId('title');
-    debug();
+    
     expect(h1.innerHTML).toBe('New Movie');
+    debug();
+    
+    const form = queryByTestId('form'); //Can exist or not. 
+    expect(form).toBeTruthy();
+})
+
+
+test('<NewMovie 1/>', () => {
+    const { debug, getByTestId, queryByTestId } = render(<NewMovie />);
+    const h1 = getByTestId('title');
+    
+    expect(h1.innerHTML).toBe('New Movie');
+    debug();
+
+    const form = queryByTestId('form'); //Can exist or not. 
+    expect(form).toBeTruthy();
 })
 
 
