@@ -16,7 +16,8 @@ it('render withot crash', () => {
 
 test('render button label', () => {
     const { getByTestId } = render(<Button label='click me'></Button>);
-    expect(getByTestId('button')).toHaveTextContent('click me')
+    expect(getByTestId('button')).toHaveTextContent('click me');
+    
 })
 
 test('render button label 2', () => {
