@@ -25,7 +25,7 @@ describe("<LoginForm />", () => {
     const username = await findByTestId("username");
 
     fireEvent.change(username, { target: { value: "test" } });
-
+    
     expect(onUsernameChange).toHaveBeenCalledWith("test");
   });
 

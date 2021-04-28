@@ -6,7 +6,6 @@ import '@testing-library/jest-dom/extend-expect';
 import renderer from 'react-test-renderer';
 
 
-
 afterEach(cleanup);
 
 it('render withot crash', () => {
@@ -17,7 +16,6 @@ it('render withot crash', () => {
 test('render button label', () => {
     const { getByTestId } = render(<Button label='click me'></Button>);
     expect(getByTestId('button')).toHaveTextContent('click me');
-    
 })
 
 test('render button label 2', () => {
