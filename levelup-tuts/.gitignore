@@ -1,13 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-alex-horea/node_modules
-levelup-tuts/node_modules
 /node_modules
-/node_modules
-/node_modules
-/.pnp
-.pnp.js
 
 # testing
 /coverage
@@ -25,3 +19,5 @@ levelup-tuts/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.vscode
