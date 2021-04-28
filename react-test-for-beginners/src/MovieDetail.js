@@ -59,7 +59,7 @@ const MovieInfo = styled.div`
   padding: 2rem 10%;
   display: flex;
   > div {
-    margin-left: 20px;
+    margin-left: 25px;
   }
   img {
     position: relative;
