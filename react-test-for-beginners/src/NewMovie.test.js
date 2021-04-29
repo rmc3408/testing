@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, cleanup } from 'react-testing-library';
+import { render, fireEvent, cleanup } from '@testing-library/react';
 import NewMovie from './NewMovie'
 
 afterEach(cleanup);
@@ -18,7 +18,7 @@ test('<NewMovie True/>', () => {
 
 
 test('<NewMovie Title/>', () => {
-    const { debug, getByTestId } = render(<NewMovie />);
+    const { getByTestId } = render(<NewMovie />);
     const h1 = getByTestId('title');
     expect(h1.innerHTML).toBe('New Movie');
     //debug();

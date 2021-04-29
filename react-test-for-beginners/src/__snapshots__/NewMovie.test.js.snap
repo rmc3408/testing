@@ -17,8 +17,8 @@ exports[`<NewMovie Snapshot/> 1`] = `
         Name
       </label>
       <input
-        type="text"
         id="text"
+        type="text"
       />
       <button>
         Submit

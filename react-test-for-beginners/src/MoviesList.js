@@ -1,4 +1,4 @@
-/* eslint react/no-did-mount-set-state: 0 */
+
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import Movie from './Movie';
@@ -24,7 +24,7 @@ class MoviesList extends PureComponent {
 
   render() {
     return (
-      <MovieGrid>
+      <MovieGrid data-testid='movies'>
         {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </MovieGrid>
     );
