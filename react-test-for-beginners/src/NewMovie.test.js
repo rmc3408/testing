@@ -6,26 +6,22 @@ afterEach(cleanup);
 
 
 test('<NewMovie Snapshot/>', () => {
-    const { debug, getByTestId, queryByTestId } = render(<NewMovie />);
-    const h1 = getByTestId('title');
-    
-    expect(h1.innerHTML).toBe('New Movie');
-    debug();
-    
+    const { container } = render(<NewMovie />);
+    expect(container.firstChild).toMatchSnapshot();
+})
+
+test('<NewMovie True/>', () => {
+    const { debug, queryByTestId } = render(<NewMovie />);
     const form = queryByTestId('form'); //Can exist or not. 
     expect(form).toBeTruthy();
 })
 
 
-test('<NewMovie 1/>', () => {
-    const { debug, getByTestId, queryByTestId } = render(<NewMovie />);
+test('<NewMovie Title/>', () => {
+    const { debug, getByTestId } = render(<NewMovie />);
     const h1 = getByTestId('title');
-    
     expect(h1.innerHTML).toBe('New Movie');
-    debug();
-
-    const form = queryByTestId('form'); //Can exist or not. 
-    expect(form).toBeTruthy();
+    //debug();
 })
 
 
