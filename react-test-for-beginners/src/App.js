@@ -8,6 +8,7 @@ import './App.css';
 
 import MoviesList from './MoviesList';
 import MovieDetail from './MovieDetail';
+import NewMovie from './NewMovie';
 
 const App = () => (
   <Router>
@@ -17,6 +18,7 @@ const App = () => (
           <img src={logo} className="App-logo" alt="logo" />
         </Link>
       </header>
+      <NewMovie />
       <Switch>
         <Route exact path="/" component={MoviesList} />
         <Route path="/:id" component={MovieDetail} />
