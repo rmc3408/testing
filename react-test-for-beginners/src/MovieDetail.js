@@ -16,6 +16,7 @@ class MovieDetail extends Component {
     try {
       const res = await fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=d2cbb8174a5c4d9f624441cd1d1e1188&language=en-US`);
       const movie = await res.json();
+      //console.log(movie)
       this.setState({
         movie,
       });

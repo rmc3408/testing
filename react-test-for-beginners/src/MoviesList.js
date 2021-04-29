@@ -14,6 +14,7 @@ class MoviesList extends PureComponent {
         'https://api.themoviedb.org/3/discover/movie?api_key=d2cbb8174a5c4d9f624441cd1d1e1188&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1',
       );
       const movies = await res.json();
+      //console.log(movies)
       this.setState({
         movies: movies.results,
       });
@@ -23,8 +24,10 @@ class MoviesList extends PureComponent {
   }
 
   render() {
+    if (this.state.movies < 1) return <h1 data-testid='loading'>Loading...</h1>;
+
     return (
-      <MovieGrid data-testid='movies'>
+      <MovieGrid>
         {this.state.movies.map(movie => <Movie key={movie.id} movie={movie} />)}
       </MovieGrid>
     );
