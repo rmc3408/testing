@@ -26,6 +26,7 @@ class MovieDetail extends Component {
 
   render() {
     const { movie } = this.state;
+    if (!movie) return null;
 
     return (
       <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
@@ -34,7 +35,7 @@ class MovieDetail extends Component {
             <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
           </Overdrive>
           <div>
-            <h1>{movie.title}</h1>
+            <h1 data-testid='title'>{movie.title}</h1>
             <h3>{movie.release_date}</h3>
             <p>{movie.overview}</p>
           </div>
