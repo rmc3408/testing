@@ -11,7 +11,7 @@ function AppForm({ fnChange, text, children}: Props) {
         <div>
             <h1>{children}</h1>
             <label htmlFor='search'>input:</label>
-            <input type='text' id='search' value={text} onChange={(e) => fnChange(e)} />
+            <input type='text' id='search' value={text} onChange={(e) => fnChange(e)} placeholder='Enter text...' />
         </div>
     )
 }
