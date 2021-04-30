@@ -28,7 +28,7 @@ function App() {
       <AppForm text={txt} fnChange={handleChange} >Search Header</AppForm>
       <p>You typed: {txt ?? 'TYPE'}</p>
       <hr />
-      {user ? <p>Username: {user.name}</p> : <p>Username: ...</p>}
+      {user ? <p>Username: {user.name}</p> : null}
     </div>
   );
 }

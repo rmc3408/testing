@@ -19,13 +19,32 @@ describe('when the FETCH sucessfully', () => {
     mockedGetUser.mockClear();
   });
 
-  test('Assure fetch is called ONCE', async() => {
+  test('Should fetch is called ONCE', async() => {
     render(<App />);
     await waitFor(() => {
       expect(mockedGetUser).toHaveBeenCalledTimes(1);
     });
   });
+
+  test('Should render the username once', async () => {
+    const TEST_NAME = 'Mr.Fetch';
+    // mockedGetUser.mockImplementationOnce(() => {
+    //   return Promise.resolve({ id: 100, name: 'Mr.Fetch' });
+    // });
+    mockedGetUser.mockResolvedValueOnce({ id: 100, name: TEST_NAME });
+
+    render(<App />);
+    expect(screen.queryByText(/Username/)).toBeNull();
+    //screen.debug();
+    expect(await screen.findByText(/Mr.Fetch/)).toBeInTheDocument();
+    screen.debug();
+  });
+  
 });
+
+
+
+
 
 test('renders learn react link', () => {
   const linkElement = screen.getByText(/Search/i);
