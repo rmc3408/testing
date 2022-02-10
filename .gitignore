@@ -1,6 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+academind/node_modules
 alex-horea/node_modules
 levelup-tuts/node_modules
 /node_modules
