@@ -16,3 +16,22 @@ Content-Type: application/json
   "email": "rmc@gmail.com",
   "password": "scret@123"
 }
+
+
+### Create a JOB in Jobs Controller
+POST http://localhost:3000/api/v1/job/new HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYmRlYjhkNTBlMzE0NTcwMzEyZDMxYyIsImlhdCI6MTY3MzM5MTQ5OCwiZXhwIjoxNjczOTk2Mjk4fQ.5hPKK37nBa7cEp5R0R64nZgVeaOtvNvhTzwH1GIPk3g
+
+{
+  "title": "Node Developer",
+  "description": "Must be a full-stack developer, able to implement MERN stack paradigm.",
+  "email": "employeer1@gmail.com",
+  "address": "651 Rr 2, Oquawka, IL, 61469",
+  "company": "Knack Ltd",
+  "industry": [],
+  "positions": 2,
+  "salary": 155000,
+  "user": "63bdeb8d50e314570312d31c",
+  "postingDate": "2022-11-08T22:31:52.441Z"
+}

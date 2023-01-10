@@ -72,6 +72,7 @@ export const loginUser = async (req, res, next) => {
       token,
     });
   } catch (error) {
+    console.log(error)
     res.status(500).json({
       error: "Error while loggin in",
     });

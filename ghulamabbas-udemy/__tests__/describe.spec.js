@@ -1,4 +1,6 @@
-beforeAll(() => console.log('before all'));
+beforeAll(() => {
+  //console.log('before all')
+});
 
 
 describe('first Block - it and test are same', () => {
@@ -8,5 +10,4 @@ describe('first Block - it and test are same', () => {
 
 describe('Second Block', () => {
   it('test4', () => {})
-  it('test5', () => {})
 })

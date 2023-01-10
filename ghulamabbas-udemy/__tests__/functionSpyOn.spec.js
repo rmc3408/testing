@@ -7,5 +7,5 @@ test('should get data', async () => {
   jest.spyOn(mockCrypto, 'randomBytes').mockResolvedValueOnce('fake spyon');
   
   const data = await getData();
-  console.log(data);
+  //console.log(data);
 })

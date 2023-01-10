@@ -9,6 +9,6 @@ test('should get data', async () => {
   mockCrypto.randomBytes.mockResolvedValueOnce('fake buffer');
   
   const data = await getData();
-  console.log(data);
+  //console.log(data);
 })
 
