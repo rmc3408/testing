@@ -1,10 +1,10 @@
 const cry = require('crypto');
 
-module.exports.getData = function () {
+exports.getData = function () {
   const value = new Promise((resolve, reject) => {
     resolve(cry.randomBytes(3));
   });
   return value;
 }
 
-// getData().then(res => console.log(res));
+//module.exports.getData().then(res => console.log(res));

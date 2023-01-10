@@ -1,14 +1,11 @@
 const { getData } = require('../utils/function');
 const mockCrypto = require('crypto');
 
-jest.mock('crypto');
 
 test('should get data', async () => {
   
-  //mockCrypto.randomBytes = jest.fn().mockImplementation(() => Promise.resolve('fake'));
-  mockCrypto.randomBytes.mockResolvedValueOnce('fake buffer');
+  jest.spyOn(mockCrypto, 'randomBytes').mockResolvedValueOnce('fake spyon');
   
   const data = await getData();
   console.log(data);
 })
-
