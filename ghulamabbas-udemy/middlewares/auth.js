@@ -18,13 +18,13 @@ export const isAuthenticatedUser = async (req, res, next) => {
       });
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = await jwt.verify(token, process.env.JWT_SECRET);
 
     req.user = await User.findById(decoded.id);
 
     next();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(500).json({
       error: "User authentication failed",
     });
