@@ -126,6 +126,7 @@ describe("Update a Job", () => {
     jest.spyOn(Job, "findById").mockResolvedValueOnce(null);
 
     await updateJob(mockRequest, mockResponse);
+
     expect(mockResponse.status).toHaveBeenCalledWith(404);
     expect(mockResponse.json).toHaveBeenCalledWith({
       error: "Job not found",
@@ -135,7 +136,7 @@ describe("Update a Job", () => {
 
   it("should update the job by id", async () => {
     const title = "React Developer";
-    const updatedJob = { ...mockJob, title };
+    const updatedJob = { title };
 
     jest.spyOn(Job, "findById").mockResolvedValueOnce(mockJob);
     jest.spyOn(Job, "findByIdAndUpdate").mockResolvedValueOnce(updatedJob);
@@ -151,8 +152,55 @@ describe("Update a Job", () => {
 
     await updateJob(mockReq, mockResponse);
 
+    expect(mockResponse.status.mock.lastCall[0]).toEqual(200);
     expect(mockResponse.json).toHaveBeenCalledWith({
       job: updatedJob,
+    });
+  });
+
+  it("should throw unauthorized to update this job", async () => {
+    jest.spyOn(Job, "findById").mockResolvedValueOnce(mockJob);
+
+    const mockReq = {
+      ...mockRequest,
+      params: { id: "636ad8d88242262f5d0d85cc" },
+      user: {
+        id: "6368dadd983d6c4b181e3711-wrong",
+      },
+    };
+
+    await updateJob(mockReq, mockResponse);
+
+    expect(mockResponse.status.mock.lastCall[0]).toBe(403)
+    // console.log(mockResponse.json.mock.lastCall[0])
+    expect(mockResponse.json.mock.lastCall[0]).toEqual({ error: "You are not allowed to update this job" });
+  });
+});
+
+describe("Delete a Job", () => {
+  it("should throw job not found error", async () => {
+    jest.spyOn(Job, "findById").mockResolvedValueOnce(null);
+
+    const mockReq = {
+      ...mockRequest,
+      params: { id: "636ad8d88242262f5d0d85c1-wrong" },
+    };
+
+    await deleteJob(mockReq, mockResponse);
+    expect(mockResponse.status).toHaveBeenCalledWith(404);
+    expect(mockResponse.json).toHaveBeenCalledWith({
+      error: "Job not found",
+    });
+  });
+
+  it("should delete the job by id", async () => {
+    jest.spyOn(Job, "findById").mockResolvedValueOnce(mockJob);
+    jest.spyOn(Job, "findByIdAndDelete").mockResolvedValueOnce(mockJob);
+
+    await deleteJob(mockRequest, mockResponse);
+    expect(mockResponse.status).toHaveBeenCalledWith(201);
+    expect(mockResponse.json).toHaveBeenCalledWith({
+      job: mockJob,
     });
   });
 });
